@@ -10,44 +10,26 @@ Patient::Patient(string name, int age, int weight, float discount, int money) : 
 
 int Patient::setAge(int age)
 {
-	try
-	{
-		if (age < 0 && age > 110)
-			throw invalid_argument("Invalid number format");
+	if (age < 0 && age > 110)
+		throw invalid_argument("Invalid number format");
+	else 
 		return age;
-	}
-	catch (const invalid_argument& error)
-	{
-		cout << error.what() << endl;
-	}
 }
 
 int Patient::setWeight(int weight)
 {
-	try
-	{
-		if (weight < 0 && weight > 200)
-			throw invalid_argument("Invalid number format");
+	if (weight < 0 && weight > 200)
+		throw invalid_argument("Invalid number format");
+	else
 		return weight;
-	}
-	catch (const invalid_argument& error)
-	{
-		cout << error.what() << endl;
-	}
 }
 
 float Patient::setDiscount(float discount)
 {
-	try
-	{
-		if (discount < 0 && discount > 1)
-			throw invalid_argument("Invalid number format");
+	if (discount < 0 && discount > 1)
+		throw invalid_argument("Invalid number format");
+	else
 		return discount;
-	}
-	catch (const invalid_argument& error)
-	{
-		cout << error.what() << endl;
-	}
 }
 
 void Patient::setListOfNeededCure(Cure drug)
