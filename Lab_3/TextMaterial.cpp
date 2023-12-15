@@ -2,10 +2,7 @@
 
 TextMaterial::TextMaterial(){}
 
-TextMaterial::TextMaterial(string nameOfMaterial, bool isDone, string text) : LearningMaterial(nameOfMaterial, isDone)
-{
-	setTextMaterial(text);
-}
+TextMaterial::TextMaterial(string nameOfMaterial) : LearningMaterial(nameOfMaterial){}
 
 void TextMaterial::setTextMaterial(string text)
 {

@@ -1,5 +1,4 @@
 #pragma once
-#include <vector>
 #include "Lesson.h"
 
 class Cource
@@ -13,15 +12,22 @@ private:
 
 public:
 	Cource();
-	Cource(string courceName,string courceTopic, string instructorName);
+	Cource(string courceName,string courceTopic);
 
+	void setNameOfCource(string nameOfCource);
+	void setTopicOfCource(string topicOfCource);
 	void setListOfLessons(Lesson& lesson);
 	void setListOfLearnedLessons(Lesson& lesson);
+	void setInstructor(string nameOfInstructor);
+	vector<Lesson>& getListOfAllLessons();
 	string getNameOfCource();
 	string getCourceTopic();
-	Lesson getLesson(int lessonNumber);
+	Lesson& getLesson(int lessonNumber);
 	string getInctructorNameOfCource();
+
 	int CalculationOfNumberOfAllLesson();
 	int CalculationOfNumberOfLearnedLesson();
+	int searchOfLesson(string nameOfLesson);
+	void resetProgress();
 };
 

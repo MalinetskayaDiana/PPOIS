@@ -1,18 +1,15 @@
 #pragma once
-#include <string>
-#include <iostream>
-
-using namespace std;
+#include "PersonalAccountNumber.h"
 
 class LearningMaterial
 {
 private:
 	string nameOfMaterial_;
-	bool isExamined_;
+	bool isExamined_ = 0;
 
 public:
 	LearningMaterial();
-	LearningMaterial(string nameOfMaterial, bool isDone);
+	LearningMaterial(string nameOfMaterial);
 
 	void setIsExamineted();
 	string getNameOfMaterial();

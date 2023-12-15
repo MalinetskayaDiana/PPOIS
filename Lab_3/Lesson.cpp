@@ -16,14 +16,12 @@ void Lesson::setTextOfLesson(string text)
 
 void Lesson::setListOfVideo(string linkOfVideo)
 {
-	listOfVideo_.setLink(linkOfVideo);
+	videoOfLessson_.setLink(linkOfVideo);
 }
 
 void Lesson::setAddMaterial(string linkOfAddMaterial)
 {
-	AdditionalMaterial usefullLink;
-	usefullLink.setLink(linkOfAddMaterial);
-	addMaterial_.push_back(usefullLink);
+	addMaterial_.setLink(linkOfAddMaterial);
 }
 
 void Lesson::setHomework(string exercise)
@@ -46,17 +44,22 @@ bool Lesson::getAccessToLesson()
 	return accessToLesson_;
 }
 
-TextMaterial Lesson::getTextMaterial()
+TextMaterial& Lesson::getTextMaterial()
 {
 	return textOfLesson_;
 }
 
-VideoMaterial Lesson::getVideoMaterial()
+VideoMaterial& Lesson::getVideoMaterial()
 {
-	return listOfVideo_;
+	return videoOfLessson_;
 }
 
-IndividTask Lesson::getHomework()
+AdditionalMaterial& Lesson::getAddMaterial()
+{
+	return addMaterial_;
+}
+
+IndividTask& Lesson::getHomework()
 {
 	return homework_;
 }

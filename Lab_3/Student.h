@@ -1,20 +1,27 @@
 #pragma once
 #include "User.h"
-#include "Cource.h"
 
-class Student : virtual User
+class Student : public User
 {
 private:
 	Cource studingCource_;
-	string personalAccountNumber_;
+	PersonalAccountNumber studentAccount_;
+	bool isCertificate_ = false;
+
+	void setAccountNumber();
 
 public:
 	Student();
-	Student(string name);
+	Student(string name, string personalInfo);
+
+	void setCertificate();
+	bool getCertificate();
+	Cource& getStudingCource();
+	PersonalAccountNumber& getAccount();
 
 	void registration() override;
 	void comptiteLesson();
-	void solveIndividTask();
-	void payFor();
+	void solveIndividTask(string nameOfLesson, string studentAnswer);
+	void payFor(int money);
 };
 

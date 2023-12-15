@@ -2,7 +2,7 @@
 
 LearningMaterial::LearningMaterial(){}
 
-LearningMaterial::LearningMaterial(string nameOfMaterial, bool): nameOfMaterial_(nameOfMaterial), isExamined_(false){}
+LearningMaterial::LearningMaterial(string nameOfMaterial): nameOfMaterial_(nameOfMaterial){}
 
 void LearningMaterial::setIsExamineted()
 {

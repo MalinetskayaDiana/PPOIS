@@ -8,7 +8,7 @@ private:
 
 public:
 	TextMaterial();
-	TextMaterial(string nameOfMaterial, bool isDone, string text);
+	TextMaterial(string nameOfMaterial);
 
 	void setTextMaterial(string text);
 	string getTextMeterial();
