@@ -9,15 +9,31 @@ namespace MatrixUnitTests
 	TEST_CLASS(MatrixUnitTests)
 	{
 	public:
-		
-		TEST_METHOD(AddVertexTest)
+
+		TEST_METHOD(IsEmptyUTest)
+		{
+			GraphMatrix<int> graph;
+			bool isEmpty = graph.isEmpty();
+			Assert::IsTrue(isEmpty);
+		}
+
+		TEST_METHOD(ClearMatrixUTest)
+		{
+			GraphMatrix<int> graph;
+			graph.addVertex();
+			graph.clearMatrix();
+			bool isEmptyAfterClearing = graph.isEmpty();
+			Assert::IsTrue(isEmptyAfterClearing);
+		}
+
+		TEST_METHOD(AddVertexUTest)
 		{
 			GraphMatrix<int> graph;
 			graph.addVertex();
 			Assert::IsTrue(graph.vertexCount() == 1);
 		}
 		
-		TEST_METHOD(AddEdgeTest)
+		TEST_METHOD(AddEdgeUTest)
 		{
 			GraphMatrix<int> graph;
 			graph.addVertex();
@@ -26,7 +42,7 @@ namespace MatrixUnitTests
 			Assert::IsTrue(graph.hasEdge(0, 1));
 		}
 
-		TEST_METHOD(RemoveEdgeTest)
+		TEST_METHOD(RemoveEdgeUTest)
 		{
 			GraphMatrix<int> graph;
 			graph.addVertex();
@@ -36,7 +52,7 @@ namespace MatrixUnitTests
 			Assert::IsFalse(graph.hasEdge(0, 1));
 		}
 
-		TEST_METHOD(RemoveVertexTest)
+		TEST_METHOD(RemoveVertexUTest)
 		{
 			GraphMatrix<int> graph;
 			graph.addVertex();
@@ -47,7 +63,7 @@ namespace MatrixUnitTests
 			Assert::IsFalse(graph.hasEdge(0, 1));
 		}
 
-		TEST_METHOD(HasEdgeTest)
+		TEST_METHOD(HasEdgeUTest)
 		{
 			GraphMatrix<int> graph;
 			graph.addVertex();
@@ -57,7 +73,7 @@ namespace MatrixUnitTests
 			Assert::IsTrue(exists);
 		}
 
-		TEST_METHOD(HasVertexTest)
+		TEST_METHOD(HasVertexUTest)
 		{
 			GraphMatrix<int> graph;
 			graph.addVertex();
@@ -65,7 +81,7 @@ namespace MatrixUnitTests
 			Assert::IsTrue(exists);
 		}
 
-		TEST_METHOD(ComparisonOperatorTest)
+		TEST_METHOD(ComparisonOperatorUTest)
 		{
 			GraphMatrix<int> graph1, graph2;
 			graph1.addVertex();
@@ -78,7 +94,7 @@ namespace MatrixUnitTests
 			Assert::IsTrue(areEqual);
 		}
 
-		TEST_METHOD(GreaterOrComparisonThanOperatorTest)
+		TEST_METHOD(GreaterOrComparisonThanOperatorUTest)
 		{
 			GraphMatrix<int> graph1, graph2;
 			graph1.addVertex();
@@ -91,7 +107,7 @@ namespace MatrixUnitTests
 			bool isSmaller = (graph1 >= graph2);
 			Assert::IsTrue(isSmaller);
 		}
-		TEST_METHOD(SmallerOrComparisonThanOperatorTest)
+		TEST_METHOD(SmallerOrComparisonThanOperatorUTest)
 		{
 			GraphMatrix<int> graph1, graph2;
 			graph1.addVertex();
@@ -104,7 +120,7 @@ namespace MatrixUnitTests
 			bool isSmaller = (graph1 <= graph2);
 			Assert::IsTrue(isSmaller);
 		}
-		TEST_METHOD(VertexCountTest)
+		TEST_METHOD(VertexCountUTest)
 		{
 			GraphMatrix<int> graph;
 			graph.addVertex();
@@ -113,7 +129,7 @@ namespace MatrixUnitTests
 			Assert::AreEqual((size_t)2, count);
 		}
 
-		TEST_METHOD(EdgeCountTest)
+		TEST_METHOD(EdgeCountUTest)
 		{
 			GraphMatrix<int> graph;
 			graph.addVertex();
@@ -123,7 +139,7 @@ namespace MatrixUnitTests
 			Assert::AreEqual((size_t)1, count);
 		}
 
-		TEST_METHOD(VertexDegreeTest)
+		TEST_METHOD(VertexDegreeUTest)
 		{
 			GraphMatrix<int> graph;
 			graph.addVertex();
@@ -135,7 +151,7 @@ namespace MatrixUnitTests
 			Assert::AreEqual((size_t)2, degree);
 		}
 
-		TEST_METHOD(EdgeDegreeTest)
+		TEST_METHOD(EdgeDegreeUTest)
 		{
 			GraphMatrix<int> graph;
 			graph.addVertex();
