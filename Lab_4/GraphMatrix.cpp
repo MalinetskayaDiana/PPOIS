@@ -1,13 +1,14 @@
 #include "GraphMatrix.h"
 
-template<typename T>
-GraphMatrix<T>::GraphMatrix() : matrix(){}
 
 template<typename T>
-GraphMatrix<T>::GraphMatrix(const GraphMatrix& other) : matrix(other.matrix){}
+GraphMatrix<T>::GraphMatrix() : matrix() {}
 
 template<typename T>
-GraphMatrix<T>::~GraphMatrix(){}
+GraphMatrix<T>::GraphMatrix(const GraphMatrix& other) : matrix(other.matrix) {}
+
+template<typename T>
+GraphMatrix<T>::~GraphMatrix() {}
 
 template<typename T>
 typename GraphMatrix<T>::iterator GraphMatrix<T>::begin()
@@ -63,33 +64,25 @@ bool GraphMatrix<T>::operator==(const GraphMatrix& other) const
 template <typename T>
 bool GraphMatrix<T>::operator!=(const GraphMatrix& other) const
 {
-	return !(*this == other);
+	return (this == other);
 }
 
 template <typename T>
 bool GraphMatrix<T>::operator>(const GraphMatrix& other) const
 {
-	if (!(this <= other))
-		return true;
-	else
-		return false;
+	return (this <= other);
 }
 
 template <typename T>
 bool GraphMatrix<T>::operator<(const GraphMatrix& other) const
 {
-	if (!(this >= other))
-		return true;
-	else
-		return false;
+	return (this >= other);
 }
 
 template <typename T>
 bool GraphMatrix<T>::operator>=(const GraphMatrix& other) const
 {
-	if (vertexCount() > other.vertexCount() || vertexCount() == other.vertexCount())
-		return true;
-	else if (edgeCount() > other.edgeCount() || edgeCount() == other.edgeCount())
+	if ((vertexCount() > other.vertexCount() || vertexCount() == other.vertexCount()) || (edgeCount() > other.edgeCount() || edgeCount() == other.edgeCount()))
 		return true;
 	else
 		return false;
@@ -98,9 +91,7 @@ bool GraphMatrix<T>::operator>=(const GraphMatrix& other) const
 template <typename T>
 bool GraphMatrix<T>::operator<=(const GraphMatrix& other) const
 {
-	if (vertexCount() < other.vertexCount() || vertexCount() == other.vertexCount())
-		return true;
-	else if (edgeCount() < other.edgeCount() || edgeCount() == other.edgeCount())
+	if ((vertexCount() < other.vertexCount() || vertexCount() == other.vertexCount()) || (edgeCount() < other.edgeCount() || edgeCount() == other.edgeCount()))
 		return true;
 	else
 		return false;
@@ -136,15 +127,15 @@ template <typename T>
 size_t GraphMatrix<T>::edgeCount() const
 {
 	size_t count = 0;
-	for (const auto& row : matrix) 
+	for (const auto& row : matrix)
 	{
-		for (const auto& value : row) 
+		for (const auto& value : row)
 		{
-			if (value != 0) 
+			if (value != 0)
 				++count;
 		}
 	}
-	return count / 2; 
+	return count / 2;
 }
 
 template <typename T>
@@ -176,7 +167,7 @@ void GraphMatrix<T>::addVertex()
 {
 	size_t n = matrix.size();
 	matrix.resize(n + 1);
-	for (auto& row : matrix) 
+	for (auto& row : matrix)
 	{
 		row.push_back(0);
 	}
@@ -185,7 +176,7 @@ void GraphMatrix<T>::addVertex()
 template <typename T>
 void GraphMatrix<T>::addEdge(size_t i, size_t j, T value)
 {
-	if (i >= matrix.size() || j >= matrix.size()) 
+	if (i >= matrix.size() || j >= matrix.size())
 		throw out_of_range("Vertex does not exists!");
 	if (i == j)
 		throw invalid_argument("Same Vertex!");
